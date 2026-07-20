@@ -143,15 +143,9 @@ export function ChatWindow() {
                 height: 36,
                 borderRadius: 10,
                 background: "linear-gradient(135deg, #4f46e5, #818cf8)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 18,
                 flexShrink: 0,
               }}
-            >
-              🤖
-            </div>
+            />
             <div>
               <div style={{ color: "white", fontWeight: 700, fontSize: 14, lineHeight: 1.2 }}>Ops Assistant</div>
               <div style={{ color: "#64748b", fontSize: 11, marginTop: 1 }}>Powered by NVIDIA NIM</div>

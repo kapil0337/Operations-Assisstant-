@@ -65,26 +65,7 @@ export function MessageBubble({ message }: { message: Message }) {
   }
 
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", gap: 10, margin: "12px 0 4px" }}>
-      {/* Bot avatar */}
-      <div
-        style={{
-          flexShrink: 0,
-          width: 34,
-          height: 34,
-          borderRadius: "50%",
-          background: "linear-gradient(135deg, #0f172a, #334155)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 16,
-          boxShadow: "0 1px 4px rgba(0,0,0,0.15)",
-          marginTop: 2,
-        }}
-      >
-        🤖
-      </div>
-
+    <div style={{ display: "flex", alignItems: "flex-start", margin: "12px 0 4px" }}>
       <div style={{ maxWidth: "72%", minWidth: 60 }}>
         {/* Tool call chips */}
         {message.toolCalls && message.toolCalls.length > 0 && (
@@ -159,22 +140,7 @@ export function MessageBubble({ message }: { message: Message }) {
 
 export function TypingIndicator() {
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", gap: 10, margin: "12px 0 4px" }}>
-      <div
-        style={{
-          flexShrink: 0,
-          width: 34,
-          height: 34,
-          borderRadius: "50%",
-          background: "linear-gradient(135deg, #0f172a, #334155)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 16,
-        }}
-      >
-        🤖
-      </div>
+    <div style={{ display: "flex", alignItems: "flex-start", margin: "12px 0 4px" }}>
       <div
         style={{
           padding: "12px 18px",
