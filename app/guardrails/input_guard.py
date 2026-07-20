@@ -38,7 +38,9 @@ _CARD_RE = re.compile(r"\b(?:\d[ \-]?){13,19}\b")
 # Support-domain keywords — at least one must be present for the scope check to pass.
 _SCOPE_KEYWORDS = re.compile(
     r"\b(order|ticket|refund|charge|shipped|shipping|delivery|item|account|payment|invoice|"
-    r"support|help|issue|problem|return|damaged|broken|missing|track|status|cancel|discount)\b",
+    r"support|help|issue|problem|return|damaged|broken|missing|track|status|cancel|cancell?ation|"
+    r"discount|policy|warranty|replace|replacement|complaint|billing|purchase|product|"
+    r"package|parcel|defect|defective|lost|delay|delayed|double|duplicate|receipt|invoice)\b",
     re.I,
 )
 # Short / greeting messages bypass the scope check (e.g. "hello", "hi").

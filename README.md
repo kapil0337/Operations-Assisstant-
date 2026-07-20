@@ -1,6 +1,6 @@
 # Operations Assistant
 
-An agentic IT/customer-support helpdesk built on LangGraph, FastAPI, and Groq. Every
+An agentic IT/customer-support helpdesk built on LangGraph, FastAPI, and NVIDIA NIM. Every
 support team spends a large share of its time on a small set of repetitive, well-documented
 requests -- "I was double-charged", "where's my order", "what's your refund policy" -- that
 nonetheless require looking up real account data, checking a policy doc, and sometimes
@@ -38,8 +38,15 @@ human confirmation.
   circuit breakers + idempotency keys on writes, durable Postgres-backed session state,
   OpenTelemetry spans, Alembic migrations — a system, not a single script.
 
-Stack: LangGraph · FastAPI · Groq · Postgres + pgvector · Redis + ARQ · OpenTelemetry ·
+Stack: LangGraph · FastAPI · NVIDIA NIM · Postgres + pgvector · Redis + ARQ · OpenTelemetry ·
 Langfuse · React/Vite · Alembic · Docker Compose · pytest.
+
+**Models (via NVIDIA NIM, OpenAI-compatible endpoint):**
+- LLM: `meta/llama-3.3-70b-instruct`, with automatic one-time fallback to
+  `meta/llama-3.1-70b-instruct` on quota/deprecation errors (`app/agent/llm.py`).
+  Used for the supervisor, all four specialist agents, and the advisory eval judge.
+- Embeddings: `BAAI/bge-small-en-v1.5` (384-dim) for pgvector RAG over the knowledge
+  base and for episodic/long-term memory recall.
 
 ---
 
@@ -229,7 +236,7 @@ authentication, and an ARQ job queue so the API never blocks on LLM calls.
 Key files: `app/memory/checkpointer.py`, `app/auth/`, `app/queue/`, `migrations/`.
 
 ```bash
-cp .env.example .env   # fill GROQ_API_KEY, set REDIS_URL, JWT_SECRET_KEY, API_KEYS
+cp .env.example .env   # fill NVIDIA_API_KEY, set REDIS_URL, JWT_SECRET_KEY, API_KEYS
 docker compose up -d postgres redis
 docker compose run --rm migrate
 docker compose run --rm seed
