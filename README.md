@@ -8,7 +8,7 @@ An agentic support helpdesk built on LangGraph, FastAPI, and NVIDIA NIM. It hand
 
 The goal is to resolve the easy majority without a human, while making it structurally impossible for the agent to fabricate order data or commit an irreversible write without a code-level check plus explicit human confirmation. That safety property lives outside the model, so the LLM can't talk its way around it.
 
-> **Demo:** _(add a 10-second GIF of the double-charge scenario here, showing the agent pause for confirmation. Record with [Kap](https://getkap.co/) or `peek`, drop the file in `docs/`, and reference it as `![demo](docs/demo.gif)`.)_
+![demo](docs/demo.gif)
 
 ## What's inside
 
